@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from app.core.config import settings
 from app.db.database import get_db
 from app.routers.auth import router as auth_router
-
+from app.routers.patients import router as patient_router
 
 app = FastAPI(
     title=settings.app_name,
@@ -46,3 +46,6 @@ def database_health(
 
 
 app.include_router(auth_router)
+
+
+app.include_router(patient_router)
