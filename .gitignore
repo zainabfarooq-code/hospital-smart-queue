@@ -1,0 +1,67 @@
+cat > .gitignore <<'EOF'
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Testing
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+
+# Node
+node_modules/
+
+# Logs
+*.log
+logs/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Datasets
+ml/data/*
+!ml/data/.gitkeep
+
+# Model artifacts
+*.pt
+*.pth
+*.onnx
+*.h5
+*.keras
+*.ckpt
+
+# ML models
+ml/models/*
+!ml/models/.gitkeep
+
+# Generated files
+dist/
+build/
+coverage/
+
+# Temporary files
+tmp/
+temp/
+.cache/
+
+# Python packaging
+*.egg-info/
+EOF
