@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 
 from app.core.config import settings
 from app.db.database import get_db
+from app.routers.auth import router as auth_router
 
 
 app = FastAPI(
@@ -42,3 +43,6 @@ def database_health(
         "database": "connected",
         "result": result,
     }
+
+
+app.include_router(auth_router)
