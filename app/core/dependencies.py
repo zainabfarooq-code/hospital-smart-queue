@@ -105,3 +105,23 @@ RequireAdmin = Annotated[
     User,
     Depends(require_role("admin")),
 ]
+
+def require_doctor_or_admin(
+    current_user: CurrentUser,
+) -> User:
+    """
+    Allow only authenticated doctors or administrators.
+    """
+    if current_user.role not in {"doctor", "admin"}:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You do not have permission to access this resource.",
+        )
+
+    return current_user
+
+
+RequireDoctorOrAdmin = Annotated[
+    User,
+    Depends(require_doctor_or_admin),
+]

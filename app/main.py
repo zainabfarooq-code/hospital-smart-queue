@@ -5,7 +5,10 @@ from sqlalchemy.orm import Session
 from app.core.config import settings
 from app.db.database import get_db
 from app.routers.auth import router as auth_router
+from app.routers.appointments import router as appointment_router
 from app.routers.patients import router as patient_router
+from app.routers.doctor_schedules import router as doctor_schedule_router
+from app.routers.queues import router as queue_router
 
 app = FastAPI(
     title=settings.app_name,
@@ -49,3 +52,9 @@ app.include_router(auth_router)
 
 
 app.include_router(patient_router)
+
+app.include_router(appointment_router)
+
+app.include_router(doctor_schedule_router)
+
+app.include_router(queue_router)
